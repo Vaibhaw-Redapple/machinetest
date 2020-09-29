@@ -10,6 +10,8 @@ import PostsTabScreen from './screen/PostsTabScreen';
 import ChartTabScreen from './screen/ChartTabScreen';
 import ProfileTabScreen from './screen/ProfileTabScreen';
 
+import CommentsScreen from './screen/CommentsScreen';
+
 const StackScreen = createStackNavigator();
 const BottomTab = createBottomTabNavigator();
 
@@ -30,6 +32,7 @@ function Route() {
         <StackScreen.Screen name="Login" component={LoginScreen} options={{headerShown: false}} />
         <StackScreen.Screen name="Register" component={RegisterScreen} />
         <StackScreen.Screen name="Home" component={TabScreen} options={{headerShown: false}} />
+        <StackScreen.Screen name="Comments" component={CommentsScreen} />
       </StackScreen.Navigator>
     </NavigationContainer>
   )

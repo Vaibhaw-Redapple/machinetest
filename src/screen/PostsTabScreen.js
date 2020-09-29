@@ -47,7 +47,7 @@ export default class PostsTabScreen extends React.Component {
           </View>
           <FlatList
             data={this.state.posts}
-            renderItem={({ item, index }) => <Posts key={index.toString()} data={item}/>}
+            renderItem={({ item, index }) => <Posts key={index.toString()} data={item} {...this.props}/>}
           />
         </View>
       </>

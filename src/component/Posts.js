@@ -15,6 +15,11 @@ export default class Posts extends React.Component {
     super(props)
     this.state = this.props.data
   }
+  comment = () => {
+    this.setState({
+      comments: [...this.state.comments, {id: this.state.comments.length+1, image: "https://picsum.photos/seed/picsum/100/100", name:"Frank Odalthh",    comment:"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor."}]
+    })
+  }
   render(){
     return(
       <View style={styles.container}>
@@ -38,6 +43,7 @@ export default class Posts extends React.Component {
             <Image source={{uri: this.state.imageUrl}} style={{height: 200}} />
           </View>
         </View>
+        <TouchableOpacity onPress={()=>this.props.navigation.navigate('Comments', {data: this.state.comments})}>
         <View style={styles.postsInfo}>
           <View>
             <Text>{this.state.like}</Text>
@@ -48,12 +54,13 @@ export default class Posts extends React.Component {
             <Text>{this.state.share} shares</Text>
           </View>
         </View>
+        </TouchableOpacity>
         <View style={styles.postFooter}>
           <View>
             <Text>Like</Text>
           </View>
           <View>
-            <Text onPress={()=>this.setState({comments: [...this.state.comments, "Hi this is auto comment"]})}>Comment</Text>
+            <Text onPress={()=>this.comment()}>Comment</Text>
           </View>
           <View>
             <Text onPress={()=>this.setState({share: this.state.share+1})}>Share</Text>
