@@ -23,7 +23,7 @@ export default class RegisterScreen extends React.Component {
     }
   }
   onPress () {
-    
+    this.props.navigation.goBack();
   }
   render(){
     return(
@@ -32,6 +32,18 @@ export default class RegisterScreen extends React.Component {
       <SafeAreaView />
       <View style={styles.container}>
         <View style={styles.inputForm}>
+        <View style={styles.inputTextCont}>
+          <TextInput
+            style={styles.inputText}
+            onChangeText={(text) => this.setState({name: text})}
+            placeholder="Enter name"
+            selectionColor={"white"}
+            autoCorrect={false}
+            autoFocus={true}
+            placeholderTextColor={'#fff'}
+            value={this.state.name}
+          />
+        </View>
           <View style={styles.inputTextCont}>
             <TextInput
               style={styles.inputText}
